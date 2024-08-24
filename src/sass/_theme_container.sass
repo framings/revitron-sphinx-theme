@@ -1,0 +1,37 @@
+.rst-content
+
+	.container 
+		margin: $margin-rst 0
+
+	.large p
+		font-size: 160%
+		line-height: 1.5
+		font-weight: calc(450 * var(--font-weight-factor))
+	.buttons
+		a 
+			display: inline-block
+			font-size: 1.35rem
+			line-height: 2.5
+			margin-right: 0.5em
+			padding: 0 1.25em
+			border: 2px solid $border 
+			text-decoration: none
+			font-weight: calc(620 * var(--font-weight-factor))
+			border-radius: 100px
+			color: $text
+			+transition(all .2s)
+			&:hover 
+				border-color: $text
+		a:first-child 
+			color: $bg
+			background-color: $text
+			border-color: $text
+			&:hover 
+				color: $text
+				background-color: $bg
+	.image
+		background-color: $bg-panel
+		text-align: center
+		padding: $space-m
+		img 
+			box-shadow: 0 5px $space-m rgba(0,0,0,0.2)
