@@ -1,0 +1,72 @@
+.rst-versions, .rst-versions.rst-badge
+	position: fixed
+	bottom: 0 !important
+	left: 0 !important
+	width: calc(#{$nav-desktop-width} - 1px) !important
+	max-width: calc(#{$nav-desktop-width} - 1px) !important
+	color: $nav-color !important
+	background: $nav-background-color !important
+	border-top: $hairline !important
+	font-family: $base-font-family
+	z-index: $z-index-tray
+	line-height: 30px
+	box-shadow: 1px 0 0 $border
+	a
+		color: $nav-color !important
+		text-decoration: none
+	.rst-badge-small
+		display: none
+	.rst-current-version
+		padding: 0.4rem 0.7rem !important
+		background-color: $nav-background-color !important
+		display: block !important
+		text-align: right !important
+		font-size: 0.9rem !important
+		cursor: pointer
+		color: $nav-color !important
+		line-height: 30px !important
+		height: auto !important
+		+clearfix
+		.fa
+			color: $nav-color !important
+		.fa-book
+			font-size: inherit
+			line-height: inherit
+			float: left !important
+		&.rst-out-of-date
+			background-color: $nav-caption !important
+			color: $bg !important
+		&.rst-active-old-version
+			background-color: $nav-caption !important
+			color: $nav-color !important
+	&.shift-up
+		height: auto !important
+		max-height: 100%
+	&.shift-up .rst-other-versions
+		display: block
+	.rst-other-versions
+		font-size: 0.9rem
+		padding: 0.4rem 0.7rem
+		color: $nav-caption !important
+		display: none
+		hr
+			display: block
+			height: 1px
+			border: 0
+			margin: 20px 0
+			padding: 0
+			border-top: $hairline !important
+		dd
+			display: inline-block
+			margin: 0
+			a
+				display: inline-block
+				padding: $base-line-height / 4
+				line-height: 1.5
+				color: $nav-color !important
+	
+@media screen and (max-width: $nav-media-query)
+	.rst-versions
+		display: none
+		&.shift
+			display: block
