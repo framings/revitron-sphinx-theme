@@ -12,6 +12,10 @@ A fork of https://github.com/revitron/revitron-sphinx-theme
   * [revitron-sphinx-theme](https://github.com/revitron/revitron-sphinx-theme)
   * [REVITRON](https://github.com/revitron/revitron)
 
+* [.travis.yml](https://docs.travis-ci.com/user/tutorial/)
+* [.readthedocs.yml](https://docs.readthedocs.io/en/stable/config-file/index.html)
+* [requirements.txt](https://pip.pypa.io/en/stable/reference/requirements-file-format/)
+
 <br>
 <br>
 
