@@ -1,0 +1,45 @@
+.wy-breadcrumbs
+	+clearfix
+	padding: 0.5rem 0
+
+.wy-breadcrumbs li
+	display: inline-block
+	line-height: 1.8
+	color: $nav-color
+	&.wy-breadcrumbs-aside
+		float: right
+	> a
+		display: inline-block
+		padding: 0 0.4rem
+		color: $nav-color
+		text-decoration: none !important
+		&:hover, &:active
+			color: $muted !important
+		&:first-child
+			padding-left: 0
+	code
+		padding: 5px
+		border: none
+		background: none
+		&.literal
+			color: $text
+
+.wy-breadcrumbs-extra
+	margin-bottom: 0
+	color: $text
+	font-size: 80%
+	display: inline-block
+
+.wy-breadcrumbs-aside
+	.fa 
+		font-size: 1.2rem
+
++media($mobile)
+	.wy-breadcrumbs-extra
+		display: none
+	.wy-breadcrumbs li.wy-breadcrumbs-aside
+		display: none
+
+@media print
+	.wy-breadcrumbs li.wy-breadcrumbs-aside
+		display: none
