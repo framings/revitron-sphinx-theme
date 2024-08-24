@@ -1,0 +1,209 @@
+.wy-menu
+	a:hover
+		text-decoration: none
+	
+.wy-menu-vertical
+	width: $nav-desktop-width
+	padding-top: $space-m - 0.275rem
+	padding-bottom: $space-l
+	border-right: $hairline
+
+	header, p.caption
+		color: $nav-caption
+		line-height: $base-line-height
+		padding: $space-nav $gutter
+		margin: $space-s 0 0 0
+		display: block
+		font-weight: calc(700 * var(--font-weight-factor))
+	& > :first-child
+		margin-top: 0 !important
+		
+	li.current 
+		background-color: $bg-nav-current-list !important
+
+	li
+		a
+			color: $nav-color
+			+transition(background-color 0.2s)
+			&:hover
+				background: $bg-nav-hover !important
+		code
+			border: none
+			background: inherit
+			color: inherit
+			padding-left: 0
+			padding-right: 0
+		// Expand links
+		span.toctree-expand
+			float: left
+			margin-left: -1.25rem
+			@extend .fa
+			@extend .fa-angle-right
+			@extend %expand-icon
+
+		a.reference
+			line-height: $base-line-height
+		a.reference.current, a.reference.current:hover
+			color: $nav-current
+			background-color: $bg-nav-current !important
+			box-shadow: 1px 0 0 $bg-nav-current
+			*
+				background-color: inherit !important
+		
+	// On state for the first level
+	li.on a, li.current > a
+		color: $nav-color
+		padding: $space-nav $gutter
+		font-weight: inherit
+		position: relative
+		border: none
+		+font-smooth
+		&:hover
+			background: $bg-nav-hover
+			span.toctree-expand
+				color: inherit
+		span.toctree-expand
+			@extend .fa
+			@extend .fa-angle-down
+			@extend %expand-icon
+
+	%expand-icon
+		display: inline-block
+		font-size: 1.1em
+		line-height: inherit
+		color: inherit
+
+	// This is the on state for pages beyond second level
+	%hide_show_toctree_ul
+		> ul
+			display: none
+		&.current > ul
+			display: block
+
+	%shrink_toctree_element
+		font-size: .9rem
+
+	%toctree_link_color
+		color: $nav-color
+
+	%toctree_hover_link_color
+		color: $nav-color
+
+	%display_current_toctree_element
+		display: block
+
+	@for $toc_level from 1 through 10
+		.toctree-l#{$toc_level}.current .toctree-l#{$toc_level + 1}
+			@extend %hide_show_toctree_ul
+
+		@if $toc_level > 1
+			li.toctree-l#{$toc_level}
+				> a
+					@extend %toctree_link_color
+					padding-left: $gutter * ((($toc_level - 1) * 0.5) + 1)
+				
+				a:hover span.toctree-expand
+					color: inherit
+		@if $toc_level > 2 and $toc_level < 5
+			li.toctree-l#{$toc_level}
+				@extend %shrink_toctree_element
+
+	li.current ul
+		display: block
+	li ul
+		margin-bottom: 0
+		display: none
+	li ul li a
+		margin-bottom: 0
+		color: $nav-color
+		font-weight: calc(450 * var(--font-weight-factor))
+	a
+		line-height: 18px
+		padding: $space-nav $gutter
+		display: block
+		position: relative
+		color: $nav-color
+		&:hover
+			background-color: $bg-nav-hover
+			cursor: pointer
+			span.toctree-expand
+				color: inherit
+		&:active
+			background-color: $bg-nav-hover
+			cursor: pointer
+			
+.wy-side-nav-search
+	display: block
+	width: $nav-desktop-width
+	box-sizing: border-box
+	padding: 1.75rem $gutter 0 $gutter
+	margin: 0 !important
+	z-index: $z-index-popover
+	background-color: $nav-search-background-color
+	text-align: left
+	color: $nav-search-color
+
+	input[type="text"] 
+		display: block
+		width: 90%
+		position: relative
+		border: 2px solid $border-search
+		background-color: transparent !important
+		-webkit-appearance: none !important
+		padding: 0 1.1rem
+		margin: 0 calc(-1.1rem - 2px)
+		line-height: 2.6rem
+		font-weight: calc(450 * var(--font-weight-factor))
+		box-shadow: none
+		font-size: inherit
+		color: $text
+		border-radius: 100px
+		&:focus
+			border-color: $text
+			&::placeholder 
+				color: transparent
+			&:-ms-input-placeholder  
+				color: transparent
+			&::-ms-input-placeholder 
+				color: transparent
+
+	::placeholder 
+		color: $nav-search-color
+	
+	:-ms-input-placeholder  
+		color: $nav-search-color
+	
+	::-ms-input-placeholder 
+		color: $nav-search-color
+
+	.brand
+		min-height: 9.5rem
+		height: 9.5rem
+		max-height: 9.5rem
+		> a	
+			color: $text
+			font-size: 100%
+			font-weight: calc(700 * var(--font-weight-factor))
+			display: inline-block
+			padding: 0
+			padding-top: 5px
+			+font-smooth	
+			img.logo
+				display: block  // display on its own line all the time
+				margin: 0 
+				padding: 0
+				height: 4.25rem !important
+				max-height: 4.25rem
+				width: auto
+				border-radius: 0
+				max-width: 100%  // shrink on mobile, if appropriate
+				background: rgba(0,0,0,0)  // make hover background of parent show up properly
+
+.wy-nav .wy-menu-vertical
+	header
+		color: $text
+	a
+		color: $text
+		&:hover
+			background-color: $link-color
+			color: $bg
